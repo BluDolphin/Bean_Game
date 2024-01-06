@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b4a3ddb6fd5bff84dac0e2311631dfb4, type: 2}
     - target: {fileID: 919132149155446097, guid: 3d24e22b5e290074a838bf059215eef3, type: 3}
       propertyPath: m_Name
-      value: test
+      value: test Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d24e22b5e290074a838bf059215eef3, type: 3}
@@ -105,31 +105,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1104947527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8763464747015174234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41d2abd3691c6a044bf0eb283377257c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotateTowardMouse: 1
-  MovementSpeed: 3.5
-  RotationSpeed: 4
-  Camera: {fileID: 0}
---- !u!114 &1104947528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8763464747015174234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad97a88c4692d384b9d3db5eb93d5e08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
