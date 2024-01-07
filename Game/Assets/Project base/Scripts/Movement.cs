@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
         {
             RotateFromMouseVector();    //mouse look
         }
+
     }
 
     private void RotateFromMouseVector()
@@ -65,6 +66,8 @@ public class Movement : MonoBehaviour
         var targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;
         return targetVector;
+
+ 
     }
 
     private void RotateTowardMovementVector(Vector3 movementDirection)
@@ -73,4 +76,5 @@ public class Movement : MonoBehaviour
         var rotation = Quaternion.LookRotation(movementDirection);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, RotationSpeed);
     }
+
 }
