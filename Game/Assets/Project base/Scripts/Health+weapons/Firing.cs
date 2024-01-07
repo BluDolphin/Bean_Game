@@ -5,22 +5,15 @@ using UnityEngine;
 
 public class Firing : MonoBehaviour
 {
-    public static Action shootInput;
-    public static Action reloadInput;
+    public static Action shootInput; //sets an action called shootInput
+    public static Action reloadInput; //sets an action called reloadInput
 
-    [SerializeField] private KeyCode reloadKey;
-
+    //This functions is called each frame
     private void Update() 
     {
-        if (Input.GetMouseButton(0)) //if mouse 1 is pressed
+        if (Input.GetMouseButton(0)) //check if mouse 1 is pressed
         {
-            shootInput?.Invoke();
+            shootInput?.Invoke(); //activate the shoot input
         }
-
-        if (Input.GetKeyDown(reloadKey)) //if reload key is pressed 
-        {
-            reloadInput?.Invoke();
-        }
-
     }
 }

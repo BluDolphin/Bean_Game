@@ -9,10 +9,11 @@ public class Gun_Enemy : MonoBehaviour
     [SerializeField] private Transform Muzzle;
 
 
-    float timesinceSinceLastAttack;
+    float TimeSinceAttack;
     public ParticleSystem MuzzleFlash;
     public ParticleSystem ParticleReloading;
 
+    //This function is called at the start of the program
     private void Start()
     {
         EnemyAI.shootInput += Shoot;
@@ -43,8 +44,8 @@ public class Gun_Enemy : MonoBehaviour
         WeaponData.reloading = false; //set reloading to false
     }
 
-
-    private bool CanShoot() => !WeaponData.reloading && timesinceSinceLastAttack > 1f / (WeaponData.fireRate / 60f);
+    //if the not reloading and time since last attack is greater than 1 dived by the fire rate divided by 60
+    private bool CanShoot() => !WeaponData.reloading && TimeSinceAttack > 1f / (WeaponData.fireRate / 60f);
 
     public void Shoot()
     {
@@ -54,36 +55,33 @@ public class Gun_Enemy : MonoBehaviour
         {
             if (CanShoot())
             {
-                MuzzleFlash.Play();
+                MuzzleFlash.Play(); //plays muzzle flash particles
                 
+                //cast a ray from the muzzle, if it hits an entity
                 if(Physics.Raycast(Muzzle.position, Muzzle.forward, out RaycastHit hitInfo, WeaponData.fallOff))
                 {
+                    //get its DamageAble component
                     DamageAble damageable = hitInfo.transform.GetComponent<DamageAble>();
+                    //deal the damage from the current weapon
                     damageable?.Damage(WeaponData.damage);
                 }
 
-                WeaponData.ammoLeft--;
-                timesinceSinceLastAttack = 0;
-                OnAttack();
-
+                //set time since last attack to 0
+                TimeSinceAttack = 0;
+                
 
             }
         }
 
     }
 
-
+    //This function is called each frame
     private void Update()
     {
-        timesinceSinceLastAttack += Time.deltaTime;
+        TimeSinceAttack += Time.deltaTime; //sets time since last attack to itself + the current game time
         
-
+        //draws a straight line from the end of the gun
         Debug.DrawRay(Muzzle.position, Muzzle.forward * WeaponData.fallOff);
-    }
-
-    private void OnAttack()
-    {
-
     }
 
 }

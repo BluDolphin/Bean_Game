@@ -21,12 +21,13 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     private Camera Camera;  //camera
-
+    
 
     private void Awake()
     {
         _input = GetComponent<InputHandler>();   //call from other script
     }
+
 
     // Update is called once per frame
     void Update()
@@ -43,14 +44,13 @@ public class Movement : MonoBehaviour
         {
             RotateFromMouseVector();    //mouse look
         }
-
     }
 
     private void RotateFromMouseVector()
     {
         Ray ray = Camera.ScreenPointToRay(_input.MousePosition);   //draw line from ccamera to cursor
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f))        //if line hits object
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f)) //if line hits object
         {
             var target = hitInfo.point;    //asign the point hit as target
             target.y = transform.position.y;

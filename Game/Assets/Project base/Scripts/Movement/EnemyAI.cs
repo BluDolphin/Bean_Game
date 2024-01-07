@@ -15,10 +15,8 @@ public class EnemyAI : MonoBehaviour
     
     [SerializeField]
     public float AttackingDistance; //how far away the enemy will stop from the player 
-    
-    [SerializeField]
+
     Transform target;  
-    [SerializeField]
     NavMeshAgent agent;
 
     void Start()
@@ -29,8 +27,9 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);  //find the distance by getting the difference between player cordinates and objects
-        if (distance <= LookRadius)  // if disntance is less than or greater than look radius
+        //find the distance by getting the difference between player cordinates and objects
+        float distance = Vector3.Distance(target.position, transform.position);  
+        if (distance <= LookRadius)  // if distance is less than or greater than look radius
         {
             Debug.Log("AI moving to target");
             agent.SetDestination(target.position);  //go to targets position
@@ -60,10 +59,12 @@ public class EnemyAI : MonoBehaviour
 
     void OnDrawGizmos() //create a way to see look radius for debugging
     {
+        //create a red wire sphere around the object to see looking radius for debugging
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, LookRadius); //create a red wire sphere around the object to see looking radius for debugging
+        Gizmos.DrawWireSphere(transform.position, LookRadius); 
 
+        //create a yellow wire sphere around the object to see looking radius for debugging
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, AttackingDistance); //create a yellow wire sphere around the object to see looking radius for debugging
+        Gizmos.DrawWireSphere(transform.position, AttackingDistance); 
     }
 }

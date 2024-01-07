@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFinder : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
 	#region Singleton
 
-	public static PlayerFinder instance;
+	public static PlayerManager instance;
 
 	void Awake ()
 	{
@@ -15,6 +15,6 @@ public class PlayerFinder : MonoBehaviour
 
 	#endregion
 
-	public GameObject player;  //asignt onject to player
+	public GameObject player;  //asigns object to player
 
 }

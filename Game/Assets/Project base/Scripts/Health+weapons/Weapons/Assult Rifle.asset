@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: AR
   damage: 30
-  fallOff: 600
-  ammoLeft: 30
+  fallOff: 12
   magSize: 30
   fireRate: 150
   reloadTime: 1.5
