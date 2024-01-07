@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    public Vector2 InputVector { get; private set; }
+    public Vector2 InputVector { get; private set; }  // get+set x,y cordinates
 
-    public Vector3 MousePosition { get; private set; }
+    public Vector3 MousePosition { get; private set; } //get+set x,y,z cordinates
 
     // Update is called once per frame
     void Update()
