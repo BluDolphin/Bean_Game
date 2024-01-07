@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,15 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    
+    public static Action shootInput;
+    public static Action reloadInput;
+
     [SerializeField]
     public float LookRadius; //field for entering radius for player detection
     
     [SerializeField]
     public float AttackingDistance; //how far away the enemy will stop from the player 
-
+    
     [SerializeField]
     Transform target;  
     [SerializeField]
@@ -39,6 +42,13 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("AI stopping");
             transform.LookAt(target); //look at target
             agent.isStopped = true; //stop moving
+            shootInput?.Invoke();
+
+            if (WeaponData.ammoLeft == 0)
+            {
+                reloadInput?.Invoke();
+            }
+            
         }
         else  // otherwise dont stop
         {
