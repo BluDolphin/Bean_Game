@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Assult Rifle
   m_EditorClassIdentifier: 
   name: AR
-  damage: 5
+  damage: 30
   fallOff: 600
-  ammoLeft: 1
+  ammoLeft: 30
   magSize: 30
   fireRate: 150
   reloadTime: 1.5

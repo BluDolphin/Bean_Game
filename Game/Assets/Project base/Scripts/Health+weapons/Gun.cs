@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour
 
 
     float timesinceSinceLastAttack;
+    public ParticleSystem MuzzleFlash;
+    public ParticleSystem ParticleReloading;
 
     private void Start()
     {
@@ -29,6 +31,8 @@ public class Gun : MonoBehaviour
     private IEnumerator Reload()
     {
         Debug.Log ("Player Reloading");
+        
+        ParticleReloading.Play();
 
         WeaponData.reloading = true;  //set reloading to true
 
@@ -50,6 +54,8 @@ public class Gun : MonoBehaviour
         {
             if (CanShoot())
             {
+                MuzzleFlash.Play();
+                
                 if(Physics.Raycast(Muzzle.position, Muzzle.forward, out RaycastHit hitInfo, WeaponData.fallOff))
                 {
                     DamageAble damageable = hitInfo.transform.GetComponent<DamageAble>();
