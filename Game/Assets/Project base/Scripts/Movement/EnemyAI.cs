@@ -13,7 +13,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     public float AttackingDistance; //how far away the enemy will stop from the player 
 
+    [SerializeField]
     Transform target;  
+    [SerializeField]
     NavMeshAgent agent;
 
     void Start()
